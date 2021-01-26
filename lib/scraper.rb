@@ -5,11 +5,11 @@ class Scraper
   end
 
   def name(css)
-    parse_text(css)[0..-8]
+    parse_text(css)
   end
 
   def year(css)
-    parse_text(css)[1..-2].to_i
+    parse_text(css)[1..4].to_i
   end
 
   def rating(css)
@@ -20,7 +20,9 @@ class Scraper
     parse_text(css).split(',').join.to_i
   end
 
-  def trailer(css)
+  def link(css)
+    return 1 if parse_html(css)[0].nil?
+
     parse_html(css)[0]['href']
   end
 

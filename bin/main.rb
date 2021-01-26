@@ -3,56 +3,85 @@ require 'nokogiri'
 require_relative '../lib/parser'
 require_relative '../lib/scraper'
 require_relative '../lib/constants'
-
-url = {
-  root: 'https://www.imdb.com/',
-  mv: {
-    top_rated: 'chart/top/?ref_=nv_mv_250',
-    popular: 'chart/moviemeter/?ref_=nv_mv_mpm'
-  },
-  tv: {
-    top_rated: 'chart/toptv/?ref_=nv_tvv_250',
-    popular: 'chart/tvmeter/?ref_=nv_tvv_mptv'
-  }
-}
-
-name_css = 'div.title_bar_wrapper div.titleBar div.title_wrapper h1'
-year_css = 'div.title_bar_wrapper div.titleBar div.title_wrapper h1 span#titleYear'
-rating_css = 'div.title_bar_wrapper div.ratings_wrapper div.imdbRating div.ratingValue strong'
-reviewers_css = 'div.title_bar_wrapper div.ratings_wrapper div.imdbRating span.small'
-trailer_css = 'div.slate a'
+require_relative '../lib/layout'
 
 
+def display(idx, layout)
+  puts "#{idx + 1}. Name: #{layout.name}"
+  puts "   Year: #{layout.year}"
+  puts "Rating: #{layout.rating}"
+  puts "Reviews: #{layout.reviewers}"
+  puts "Watch Trailer: #{layout.trailer_link}"
 
-puts '---------IMDb scraper----------'
+  puts "----------------------\n\n"
+end
 
-puts '-----Top Rated movies Data-----'
+puts '---------IMDb Scraper----------'
+puts "\nGet the list of top Movies and TV Shows"
+puts "\nSelect your choice"
+puts "\t1. Movies"
+puts "\t2. TV Shows"
+print 'Enter Your Choice: '
+
+op = case gets.chomp.to_i
+     when 1
+       puts "\t1. Top Rated Movies"
+       puts "\t2. Most Popular Movies"
+       print 'Enter Your Choice: '
+       '1' << gets.chomp
+     when 2
+       puts "\t1. Top Rated TV Shows"
+       puts "\t2. Most Popular TV Shows"
+       print 'Enter Your Choice: '
+       '2' << gets.chomp
+     else
+       puts 'Invalid Option'
+     end
+
+puts "\n-----Scraped Data-----\n\n"
+
+pg1_processed = case op
+                when '11'
+                  Parser.new(URL[:root], URL[:mv][:top_rated]).parsed_response
+                when '12'
+                  Parser.new(URL[:root], URL[:mv][:popular]).parsed_response
+                when '21'
+                  Parser.new(URL[:root], URL[:tv][:top_rated]).parsed_response
+                when '22'
+                  Parser.new(URL[:root], URL[:tv][:popular]).parsed_response
+                end
+
+show_bouquet = []
+
+pg1_filtered = pg1_processed.css(CSS_SELECTOR[:filter])
+pg1_filtered.each_with_index do |e, i|
+  layout = Layout.new
+
+  layout.name_year(e)
+
+  link_next = layout.link
+  target = Parser.new(URL[:root], link_next).parsed_response
+  layout.misc_info(target)
+
+  show_bouquet << layout
+
+  display(i, layout)
+
+end
 
 
-top_mv_html = Parser.new(url[:root], url[:mv][:top_rated]).parsed_response
 
 
-title = top_mv_html.css('td.titleColumn a')
 
-links = []
-title.each { |e| links << e['href'] }
 
-puts links[0]
 
-target = Parser.new(url[:root], links[0]).parsed_response
 
-tr = Scraper.new(target)
 
-name = tr.name(name_css)
-year = tr.year(year_css)
-rating = tr.rating(rating_css)
-reviewers = tr.total_reviews(reviewers_css)
-trailer_link = tr.trailer(trailer_css)
 
-puts name
-puts year
-puts rating
-puts reviewers
-puts trailer_link
+
+
+
+
+
 
 
