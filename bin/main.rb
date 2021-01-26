@@ -1,19 +1,20 @@
 require 'httparty'
 require 'nokogiri'
+require 'csv'
 require_relative '../lib/parser'
 require_relative '../lib/scraper'
 require_relative '../lib/constants'
 require_relative '../lib/layout'
+require_relative '../lib/csv'
 
 
 def display(idx, layout)
-  puts "#{idx + 1}. Name: #{layout.name}"
-  puts "   Year: #{layout.year}"
-  puts "Rating: #{layout.rating}"
-  puts "Reviews: #{layout.reviewers}"
-  puts "Watch Trailer: #{layout.trailer_link}"
-
-  puts "----------------------\n\n"
+  print format('%-4.4s', "#{idx + 1}.")
+  puts "Name    : #{layout.name}"
+  puts "    Year    : #{layout.year}"
+  puts "    Rating  : #{layout.rating}"
+  puts "    Reviews : #{layout.reviews}"
+  puts "    Trailer : #{layout.trailer_link} \n\n"
 end
 
 puts '---------IMDb Scraper----------'
@@ -35,26 +36,38 @@ op = case gets.chomp.to_i
        print 'Enter Your Choice: '
        '2' << gets.chomp
      else
-       puts 'Invalid Option'
+       abort 'Invalid Option'
      end
 
-puts "\n-----Scraped Data-----\n\n"
+begin
+  processed = case op
+              when '11'
+                Parser.new(URL[:root], URL[:mv][:top_rated]).parsed_response
+              when '12'
+                Parser.new(URL[:root], URL[:mv][:popular]).parsed_response
+              when '21'
+                Parser.new(URL[:root], URL[:tv][:top_rated]).parsed_response
+              when '22'
+                Parser.new(URL[:root], URL[:tv][:popular]).parsed_response
+              else
+                abort 'Invalid Option'
+              end
+rescue StandardError
+  abort 'Network unavailable! Please check your internet connection.'
+end
 
-pg1_processed = case op
-                when '11'
-                  Parser.new(URL[:root], URL[:mv][:top_rated]).parsed_response
-                when '12'
-                  Parser.new(URL[:root], URL[:mv][:popular]).parsed_response
-                when '21'
-                  Parser.new(URL[:root], URL[:tv][:top_rated]).parsed_response
-                when '22'
-                  Parser.new(URL[:root], URL[:tv][:popular]).parsed_response
-                end
+puts "\nProcessing started..."
+sleep(1)
+puts 'This will take time. Please have patience.'
+sleep(1)
+puts "Fetching data...\n\n"
 
-show_bouquet = []
 
-pg1_filtered = pg1_processed.css(CSS_SELECTOR[:filter])
-pg1_filtered.each_with_index do |e, i|
+shows = []
+
+filtered = processed.css(CSS_SELECTOR[:filter])
+
+filtered.each_with_index do |e, i|
   layout = Layout.new
 
   layout.name_year(e)
@@ -63,15 +76,20 @@ pg1_filtered.each_with_index do |e, i|
   target = Parser.new(URL[:root], link_next).parsed_response
   layout.misc_info(target)
 
-  show_bouquet << layout
+  shows << layout
 
   display(i, layout)
 
 end
 
+puts 'Press y to generate csv file...'
+puts 'Press any other key to exit...'
+choice = gets.chomp.downcase
 
-
-
+if choice == 'y'
+  generate_csv(op, shows)
+  puts 'CSV file generated successfully.'
+end
 
 
 

@@ -14,7 +14,7 @@ CSS_SELECTOR = {
   filter: 'td.titleColumn',
   title: 'a',
   year: 'span.secondaryInfo',
-  rating: 'div.title_bar_wrapper div.ratings_wrapper div.imdbRating div.ratingValue strong',
-  reviewers: 'div.title_bar_wrapper div.ratings_wrapper div.imdbRating span.small',
+  rating: 'div.imdbRating div.ratingValue strong',
+  reviewers: 'div.imdbRating span.small',
   trailer: 'div.slate a'
 }.freeze
