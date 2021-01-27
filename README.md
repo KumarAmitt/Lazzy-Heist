@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-##Ruby Capstone Project
+### Ruby Capstone Project
 # Lazzy-Heist
 
 Lazzy Heist is a Web Scraper build in Ruby. It scraps data for Movies and TV Shows listed under different categories from
@@ -24,7 +24,7 @@ Save your desired data in a CSV file
 
 ## Presentation
 
-[Watch Presentation Video]()
+[Watch Presentation Video](https://www.loom.com/share/24f2fbd839bc40aba43a473ff9753baa?sharedAppSource=personal_library)
 
 ## Build With
 * Ruby
