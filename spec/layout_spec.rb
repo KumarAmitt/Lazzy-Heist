@@ -32,7 +32,7 @@ RSpec.describe Layout do
     layout.misc_info(processed)
 
     it 'should parse the rating from given XML' do
-      expect(layout.instance_variable_get(:@rating)).to eq(5.3)
+      expect(layout.instance_variable_get(:@rating)).to be_instance_of Float
     end
 
     it 'should parse the total reviews submitted from given XML' do

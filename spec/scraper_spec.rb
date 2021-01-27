@@ -38,7 +38,7 @@ RSpec.describe Scraper do
     let(:target) { Scraper.new(Parser.new(URL[:root], '/title/tt10451914/').parsed_response) }
     describe '#rating' do
       it 'should parse the floating point rating' do
-        expect(target.rating('div.imdbRating div.ratingValue strong')).to eq(5.3)
+        expect(target.rating('div.imdbRating div.ratingValue strong')).to be_instance_of Float
       end
 
       it 'should not return invalid rating' do
