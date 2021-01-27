@@ -36,7 +36,7 @@ RSpec.describe Layout do
     end
 
     it 'should parse the total reviews submitted from given XML' do
-      expect(layout.instance_variable_get(:@reviews)).to eq(21_006)
+      expect(layout.instance_variable_get(:@reviews)).to be_instance_of Integer
     end
 
     it 'should parse the url of trailer from given XML' do
