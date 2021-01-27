@@ -74,6 +74,7 @@ filtered.each_with_index do |e, i|
 
   link_next = layout.link
   target = Parser.new(URL[:root], link_next).parsed_response
+
   layout.misc_info(target)
 
   shows << layout
