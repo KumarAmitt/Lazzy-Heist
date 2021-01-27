@@ -69,12 +69,24 @@ rspec
 ```
 Note: Run all the commands under this section from the root directory
 
+If all the test pass successfully you will get the following message
+
+![screenshot](./Images/testing.png)
 
 ## Prerequisites
 Ruby should by installed on your local machine.
 
 Refer the official [installation guide](https://www.ruby-lang.org/en/documentation/installation/) to install Ruby.
 
+## Save Your .csv file
+
+* It creates a specific CSV file and writes into it if the file is not available
+
+* If the file with the same name already available then it will overwrite it with the new data
+
+* Please check the csv directory at the root level to see the generated .csv file
+
+* The scraped data will be stored is this file and you cab save it.
 
 ## Author
 
