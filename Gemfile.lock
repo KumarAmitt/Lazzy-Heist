@@ -39,7 +39,7 @@ DEPENDENCIES
   httparty (~> 0.18.1)
   nokogiri (~> 1.11, >= 1.11.1)
   open-uri (~> 0.1.0)
-  rspec (~> 3.5)
+  rspec (~> 3.0)
 
 BUNDLED WITH
    2.1.2
