@@ -1,2 +1,80 @@
+###Ruby Capstone Project
 # Lazzy-Heist
-Ruby Capstone Project
+
+Lazzy Heist is a Web Scraper build in Ruby. It scraps data for Movies and TV Shows listed under different categories from
+the IMDb webs
+
+Data Scraping is one of the way to extract desired data from a website. The information is collected and then exported into a format that is more useful for the users.
+
+## Feature
+You can select to extract data for either Movies or TV Shows:
+1. Movies
+2. TV Shows
+
+Further sub-categories are available for both the categories:
+
+1. Top-Rated Movies/TV Shows
+2. Most Popular Movies/TV Shows
+
+Save your desired data in a CSV file
+
+## Build With
+* Ruby
+* Ruby Gems
+    * HTTParty
+    * Nokogiri
+    * csv
+    * RSpec
+    
+## Getting Started
+* Clone the Repository to get a local copy
+```
+  git clone https://github.com/KumarAmitt/Lazzy-Heist.git
+```
+* Open Terminal or CLI 
+* Navigate into the Repository
+```bigquery
+cd/path_to_folder
+```
+* Install Required Gems
+```bigquery
+bundle install
+```
+* Run the program 
+```bigquery
+ruby ./bin/main.rb
+```
+
+## Prerequisites
+Ruby should by installed on your local machine.
+
+Refer the official [installation guide](https://www.ruby-lang.org/en/documentation/installation/) to install Ruby.
+
+
+## Author
+
+👤 **Amit Kumar**
+
+- GitHub: [@githubhandle](https://github.com/KumarAmitt)
+- Twitter: [@twitterhandle](https://twitter.com/ArrshAmitt)
+- LinkedIn: [LinkedIn](www.linkedin.com/in/kumar-amitt)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/KumarAmitt/Lazzy-Heist/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Thanks to IMDb for allowing to scrap data
+
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.
