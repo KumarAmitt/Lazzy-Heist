@@ -8,12 +8,12 @@ require_relative '../lib/layout'
 require_relative '../lib/csv'
 
 def display(idx, layout)
-  print format('%-4.4s', "#{idx + 1}.")
-  puts "Name    : #{layout.name}"
-  puts "    Year    : #{layout.year}"
-  puts "    Rating  : #{layout.rating}"
-  puts "    Reviews : #{layout.reviews}"
-  puts "    Trailer : #{layout.trailer_link} \n\n"
+  print format('%<offset>.3i', offset: (idx + 1).to_s)
+  puts "  Name    : #{layout.name}"
+  puts "     Year    : #{layout.year}"
+  puts "     Rating  : #{layout.rating}"
+  puts "     Reviews : #{layout.reviews}"
+  puts "     Trailer : #{layout.trailer_link} \n\n"
 end
 
 puts '---------IMDb Scraper----------'
