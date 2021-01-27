@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.7.2'
 
 gem 'byebug', '~> 11.1', '>= 11.1.3'
 gem 'csv', '~> 3.0'
