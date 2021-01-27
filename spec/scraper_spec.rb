@@ -48,7 +48,7 @@ RSpec.describe Scraper do
 
     describe '#total_reviews' do
       it 'should parse the total numbers of reviews submitted' do
-        expect(target.total_reviews('div.imdbRating span.small')).to eq(20_814)
+        expect(target.total_reviews('div.imdbRating span.small')).to eq(21_006)
       end
 
       it 'should not return invalid rating' do
