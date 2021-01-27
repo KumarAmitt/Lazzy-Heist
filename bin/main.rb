@@ -82,8 +82,8 @@ filtered.each_with_index do |e, i|
 
 end
 
-puts 'Press y to generate csv file...'
-puts 'Press any other key to exit...'
+puts 'Enter y to generate csv file...'
+puts 'Press Enter to exit...'
 choice = gets.chomp.downcase
 
 if choice == 'y'
