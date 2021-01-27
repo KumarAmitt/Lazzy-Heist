@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'bundler', '~> 2.2', '>= 2.2.7'
+gem 'bundler'
 gem 'byebug', '~> 11.1', '>= 11.1.3'
 gem 'csv', '~> 3.0'
 gem 'httparty', '~> 0.18.1'
