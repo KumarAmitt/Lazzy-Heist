@@ -7,7 +7,6 @@ require_relative '../lib/constants'
 require_relative '../lib/layout'
 require_relative '../lib/csv'
 
-
 def display(idx, layout)
   print format('%-4.4s', "#{idx + 1}.")
   puts "Name    : #{layout.name}"
@@ -62,7 +61,6 @@ puts 'This will take time. Please have patience.'
 sleep(1)
 puts "Fetching data...\n\n"
 
-
 shows = []
 
 filtered = processed.css(CSS_SELECTOR[:filter])
@@ -80,7 +78,6 @@ filtered.each_with_index do |e, i|
   shows << layout
 
   display(i, layout)
-
 end
 
 puts 'Enter y to generate csv file'
@@ -91,16 +88,3 @@ if choice == 'y'
   generate_csv(op, shows)
   puts 'CSV file generated successfully.'
 end
-
-
-
-
-
-
-
-
-
-
-
-
-

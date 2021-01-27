@@ -17,5 +17,4 @@ class Layout
     @trailer_link = srp.link(CSS_SELECTOR[:trailer])
     @trailer_link = @trailer_link == 1 ? 'Not Available' : URL[:root] + @trailer_link
   end
-
 end

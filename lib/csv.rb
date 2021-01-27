@@ -13,4 +13,3 @@ def generate_csv(option, dataset)
     end
   end
 end
-

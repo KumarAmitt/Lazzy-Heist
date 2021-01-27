@@ -7,7 +7,6 @@ require_relative '../lib/scraper'
 require_relative '../lib/layout'
 
 RSpec.describe Layout do
-
   describe '#name_year' do
     processed = Parser.new(URL[:root], URL[:mv][:popular]).parsed_response
     ele = processed.css('td.titleColumn')[0]
@@ -44,5 +43,4 @@ RSpec.describe Layout do
       expect(layout.instance_variable_get(:@trailer_link)).to eq('https://www.imdb.com//video/imdb/vi1057997081?playlistId=tt10451914')
     end
   end
-
 end

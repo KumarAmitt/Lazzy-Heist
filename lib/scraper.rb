@@ -1,5 +1,4 @@
 class Scraper
-
   def initialize(parsed_content)
     @content = parsed_content
   end
@@ -35,5 +34,4 @@ class Scraper
   def parse_text(css)
     parse_html(css).text
   end
-
 end
