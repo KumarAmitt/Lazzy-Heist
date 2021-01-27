@@ -1,3 +1,5 @@
+![](https://img.shields.io/badge/Microverse-blueviolet)
+
 ###Ruby Capstone Project
 # Lazzy-Heist
 
@@ -5,6 +7,8 @@ Lazzy Heist is a Web Scraper build in Ruby. It scraps data for Movies and TV Sho
 the IMDb webs
 
 Data Scraping is one of the way to extract desired data from a website. The information is collected and then exported into a format that is more useful for the users.
+
+![screenshot](./Images/Scraper.png)
 
 ## Feature
 You can select to extract data for either Movies or TV Shows:
@@ -17,6 +21,10 @@ Further sub-categories are available for both the categories:
 2. Most Popular Movies/TV Shows
 
 Save your desired data in a CSV file
+
+## Presentation
+
+[Watch Presentation Video]()
 
 ## Build With
 * Ruby
@@ -76,5 +84,21 @@ Give a ⭐️ if you like this project!
 
 
 ## 📝 License
+&copy; 2020 Amit Kumar
 
-This project is [MIT](lic.url) licensed.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE 
