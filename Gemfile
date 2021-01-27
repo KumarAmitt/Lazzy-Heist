@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bundle', '~> 0.0.1'
 gem 'bundler', '~> 2.1.2'
 gem 'byebug', '~> 11.1', '>= 11.1.3'
 gem 'csv', '~> 3.0'
