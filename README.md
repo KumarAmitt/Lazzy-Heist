@@ -52,6 +52,23 @@ bundle install
 ```bigquery
 ruby ./bin/main.rb
 ```
+## Testing
+To test the code make insure RSpec in installed
+
+Run the following command to install RSpec
+```bigquery
+gem install rspec
+```
+Run the following command to install all dependencies
+```bigquery
+bundle install
+```
+Finally to test the code Run:
+```bigquery
+rspec
+```
+Note: Run all the commands under this section from the root directory
+
 
 ## Prerequisites
 Ruby should by installed on your local machine.
