@@ -4,7 +4,7 @@
 # Lazzy-Heist
 
 Lazzy Heist is a Web Scraper build in Ruby. It scraps data for Movies and TV Shows listed under different categories from
-the IMDb webs
+the IMDb website.
 
 Data Scraping is one of the way to extract desired data from a website. The information is collected and then exported into a format that is more useful for the users.
 
